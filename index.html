@@ -112,9 +112,7 @@
 
             var question = questions[currentQuestion - 1];
 
-            $("#a").text(question.formattedA)
-            $("#b").text(question.formattedB)
-            $("#md").text(question.md)
+            $("#qlabel").text(question.question);
 
             $("#details").text(`Question ${currentQuestion}/${questionCount} | Seconds: ${seconds}`);
         }
@@ -199,7 +197,7 @@
             prefix quiz!
         </button>
     </div>
-    
+
         <div id="test">
         <div class="question">
             <div id="qlabel"></div>
