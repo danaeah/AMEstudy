@@ -94,7 +94,7 @@
                 var q = questions[i];
                 $("#result-list")
                     .append(
-            `<li>Question ${i+1}: ${q.question} ${q.var1} ${q.var2} <br> <span class="${q.isCorrect ? "green-text" : "red-text"}">Your Answer: ${q.yourAnswer} | Correct Answer: ${q.answer}</span></li>`);
+            `<li>Question ${i+1}: ${q.question} <br> <span class="${q.isCorrect ? "green-text" : "red-text"}">Your Answer: ${q.yourAnswer} | Correct Answer: ${q.answer}</span></li>`);
                 if (q.isCorrect)
                     correctCount++;
             }
