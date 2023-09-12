@@ -15,20 +15,79 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <style>
-        .fraction {
-            display: inline-block;
-            vertical-align: middle;
+        * {
             text-align: center;
+            font-family: Arial;
+            background-color: #cdeaf7;
+            color: black;
+            font-size: 1.2rem;
         }
 
-        .numerator {
-            display: block;
+        .question {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
         }
 
-        .denominator {
-            border-top: 1px solid #000;
-            padding-top: 2px;
-            display: block;
+        #qlabel {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+
+        #var1,
+        #var2 {
+            font-size: 2.2rem;
+        }
+
+        #details {
+            margin-top: 20px;
+        }
+
+        #answer:focus,
+        #answer {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-size: 2.2rem;
+            outline: none;
+            max-width: 500px;
+        }
+
+        .green-text {
+            color: green;
+        }
+
+        .red-text {
+            color: red;
+        }
+
+        button {
+            padding: 5px 50px;
+            margin-top: 100px;
+            border: none;
+            background-color: #99d4e9;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        #test {
+            margin-top: 50px;
+        }
+
+        #results{
+            display: none;
+        }
+
+        #summary {
+            display: none;
+            margin: auto;
+            margin-top: 50px;
+            font-size: 2.2rem;
+            border-bottom: 1px solid;
+            max-width: 600px;
+            padding-bottom: 20px;
+        }
+
+        #result-list li{
+            padding: 10px 0;
         }
     </style>
 
@@ -142,7 +201,7 @@
 
 
         function findVars() {
-            const mylist = [1, 1000, 1000000, 0.001, 0.000001];
+            const mylist = [1, 10, 100, 1000, 10000, 100000, 1000000, 0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001];
             const a = Math.floor(Math.random() * 5) + 1;
             const multiplier = Math.floor(Math.random() * 4) + 1;
             const b = a * multiplier;
@@ -191,22 +250,22 @@
 
 <body>
     <div class="start">
-        <h1>Aircraft Maintenance</h1>
-        <p>This took a surprising amount of work considering chatgpt coded literally the entire thing</p>
+        <h3>Aircraft Maintenance</h3>
         <p>Answers should be in the same format as the questions, no space and no units, just the number and prefix. It is also case-sensitive</p>
-        <p>Press the reset button and then the prefix quiz button if you want to try again</p>
+        <p>sometimes it will round a number when it shouldnt ill probably fix that eventually who knows just ignore it for now</p>
+        <p>Press the reset button and then the quiz button if you want to try again</p>
         <button onclick="startTest()">
             prefix quiz!
         </button>
     </div>
 
-        <div id="test">
+    <div id="test">
         <div class="question">
             <div id="qlabel"></div>
         </div>
 
         <div>
-            <input type="text" id="answer" autocomplete="off" />
+            <input type="text" placeholder="type here" id="answer" autocomplete="off" />
         </div>
 
         <div id="details">
@@ -217,6 +276,7 @@
     <div id="summary">
 
     </div>
+
     <div id="results">
         <ul id="result-list">
 
