@@ -4,8 +4,8 @@
     <meta charset="utf-8">
 
     <title>aircraft maintenance</title>
-    <meta name="description" content="AME study tool">
-    <meta name="author" content="Danae">
+    <meta name="description" content="A is for accreditation">
+    <meta name="author" content="me">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -50,6 +50,10 @@
             max-width: 500px;
         }
 
+        #answerbox {
+            border: purple;
+        }
+
         .green-text {
             color: green;
         }
@@ -62,6 +66,7 @@
             padding: 5px 10px;
             margin-top: 30px;
             margin-left: 10px;
+            margin-bottom: 20px;
             border: none;
             background-color: #99d4e9;
             font-size: 1.3rem;
@@ -90,7 +95,10 @@
         }
     </style>
 
+    <script src="timer.js"></script>
     <script src="prefixes.js"></script>
+    <script src="theoryofflight.js"></script>
+    <script src="Electrical.js"></script>
 
 </head>
 
@@ -98,13 +106,12 @@
     <div class="info">
         <h3>Aircraft Maintenance</h3>
         <div id="base-info">
-            <p>Answers should be in the same format as the questions, no space and no units, just the number and prefix. It is also case-sensitive</p>
-            <p>sometimes it will round a number when it shouldnt ill probably fix that eventually who knows just ignore it for now</p>
+            <p>good luck :D</p>
         </div>
 
         <div class="buttons">
-            <button onclick="startPrefixTest()">
-                prefix quiz!
+            <button onclick="startElecTest()">
+                Electrical Fundamentals Review
             </button>
             <br>
         </div>
@@ -116,14 +123,27 @@
             <div id="qlabel"></div>
         </div>
 
-        <div>
-            <input type="text" placeholder="type here" id="answer" autocomplete="off" />
+        <script>
+            const imgElement = document.querySelector("img");
+            imgElement.src = image
+        </script>
+
+        <div id="image">
+        </div>
+
+        <div id="answerbox">
         </div>
 
         <div id="details">
         </div>
-    </div>
 
+        <div id="buttons">
+            <button onclick="submitAnswer()">
+                Submit!
+        </div>
+
+
+    </div>
 
     <div id="summary">
 
