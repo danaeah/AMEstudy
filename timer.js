@@ -61,16 +61,29 @@ function nextQuestion() {
       }
 }
 
+function arraysAreEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+        return false;
+    }
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 function submitAnswer() {
     var question = questions[currentQuestion - 1];
     question.yourAnswer = [];
-    nextQuestion()
-    return
     for (let i = 0; i < question.answer.length; i++) {
-        console.log(document.getElementById(`"ans-${i}"`));
-        question.yourAnswer.push(document.getElementById(`"ans-${i}"`).textContent());
+        question.yourAnswer.push($(`#ans-${i}`).val());
     }
+    question.isCorrect = arraysAreEqual(question.yourAnswer, question.answer);
     console.log(question.yourAnswer);
-    question.isCorrect = question.yourAnswer == question.answer;
+    console.log(question.answer);
+    console.log(question.isCorrect);
     nextQuestion();
 }
